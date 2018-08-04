@@ -21,23 +21,21 @@ class Qiushi(object):
 
     def parse_data(self, data):
         html = etree.HTML(data)
-        # 节点　list, 可以是定位的content,也可以是上级???
+        # 节点　list, 可以是定位的content,也可以是上级???,不可以
         node_list = html.xpath('//*[contains(@id,"qiushi_tag_")]/a[1]/div/span[1]')
         # 段子内容，作者、链接
-        print(node_list)
+        # print(node_list)
         data_list = []
         for node in node_list:
             temp = {}
             try:
                 temp['content'] = node.xpath('//*[contains(@id,"qiushi_tag_")]/a[1]/div/span')[0].strip()
                 temp['author'] = node.xpath('//*[contains(@id,"qiushi_tag_")]/div[1]/a[2]/h2/text()')[0]
-                temp['url'] = 'https://www.qiushibaike.com' + node.xpath('//*[contains(@id,"qiushi_tag_")]/a[1]/@href')[
-                    0]
+                temp['url'] = 'https://www.qiushibaike.com' + node.xpath('//*[contains(@id,"qiushi_tag_")]/a[1]/@href')[0]
             except:
                 temp['content'] = node.xpath('./text()')[0].strip()
                 temp['author'] = "匿名用户"
-                temp['url'] = 'https://www.qiushibaike.com' + node.xpath('//*[contains(@id,"qiushi_tag_")]/a[1]/@href')[
-                    0]
+                temp['url'] = 'https://www.qiushibaike.com' + node.xpath('//*[contains(@id,"qiushi_tag_")]/a[1]/@href')[0]
 
             data_list.append(temp)
 
