@@ -67,7 +67,7 @@ COOKIES_ENABLED = False
 ITEM_PIPELINES = {
    # 'mySpider.pipelines.SomePipeline': 300,
    'mySpider.pipelines.TencentJsonPipeline': 300,
-
+   'mySpider.pipelines.PositionPipeline': 300,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
