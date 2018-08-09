@@ -37,3 +37,30 @@ class TencentItem(scrapy.Item):
 class PositionItem(scrapy.Item):
     position_zhize = scrapy.Field()
     position_yaoqiu = scrapy.Field()
+
+
+import sys
+
+reload(sys)
+# sys.setdefaultencoding("utf-8")
+# 系统设置编码
+
+class SinaItem(scrapy.Item):
+    # 大类的标题和url
+    parent_title = scrapy.Field()
+    parent_urls = scrapy.Field()
+    # 小类的标题和子url
+    sub_title = scrapy.Field()
+    sub_urls = scrapy.Field()
+
+    sub_filename = scrapy.Field()
+    son_urls = scrapy.Field()
+    head = scrapy.Field()
+    content = scrapy.Field()
+
+
+class DoubantvItem(scrapy.Item):
+    title = scrapy.Field()
+    cover = scrapy.Field()
+    url = scrapy.Field()
+

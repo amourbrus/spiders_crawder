@@ -1,3 +1,4 @@
+# coding=utf-8
 import requests
 import json
 
@@ -22,12 +23,9 @@ class Douban(object):
         data_list = []
         for tv in results:
             temp = {}
-            title = tv['title']
-            cover = tv['cover']
-            url = tv['url']
-            temp['title'] = title
-            temp['cover'] = cover
-            temp['url'] = url
+            temp['title'] = tv['title']
+            temp['cover'] = tv['cover']
+            temp['url'] = tv['url']
             data_list.append(temp)
         return data_list
 

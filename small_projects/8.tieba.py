@@ -24,7 +24,7 @@ class Tieba(object):
         resp = requests.get(url, self.headers)
 
         # print(resp.content.decode())
-        return resp.content  # todo 什么时候需要解码
+        return resp.content
 
     def parse_data(self, data):
         html = etree.HTML(data)

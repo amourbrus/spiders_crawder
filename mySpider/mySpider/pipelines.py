@@ -14,6 +14,11 @@ class MyspiderPipeline(object):
     def process_item(self, item, spider):
         return item
 
+# class SinaPipeline(object):
+#     def process_item[]
+
+
+
 class TencentJsonPipeline(object):
     def open_spider(self, spider):
         self.file = open('tencent.csv', 'w')

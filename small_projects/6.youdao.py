@@ -1,6 +1,7 @@
 import requests
 import time, json, random, hashlib
 
+#　python xx.py 单词/English
 
 class Youdao(object):
     def __init__(self, word):
@@ -35,7 +36,7 @@ class Youdao(object):
         S = 'fanyideskweb'
         n = self.word
         now = int(time.time() * 1000)
-        r = str(now + random.randint(0,9))
+        r = str(now + random.randint(0,9))　　# 包含９
         D = 'ebSeFb%=XZ%T[KZ)c(sy!'
         temp_str = S + n + r + D
         md5 = hashlib.md5()
@@ -54,7 +55,7 @@ class Youdao(object):
             'version': "2.1",
             'keyfrom': "fanyi.web",
             'action': "FY_BY_DEFAULT",
-            'typoResult': False
+            'typoResult': False  # 注意False
         }
 
 

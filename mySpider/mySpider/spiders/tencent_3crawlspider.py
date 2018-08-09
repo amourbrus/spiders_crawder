@@ -35,7 +35,7 @@ class TencentSpider(CrawlSpider):
         for node in node_list:
 
             item = TencentItem()
-# item取到的是unicode?
+
             item['position_name'] = node.xpath("./td[1]/a/text()").extract_first()
             item['position_link'] = u"https://hr.tencent.com/" + node.xpath("./td[1]/a/@href").extract_first()
             item['position_type'] = node.xpath("./td[2]/text()").extract_first()

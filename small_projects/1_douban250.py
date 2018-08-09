@@ -1,3 +1,4 @@
+#coding=utf-8
 """
 查看豆瓣页面：
 每页有25条电影，共有10页。
@@ -21,10 +22,10 @@ def download_page(url):
 
 def parse_html(html):
     soup = BeautifulSoup(html)
-    move_list = soup.find('ol', attrs={'class':'grid_view'})
+    movie_list = soup.find('ol', attrs={'class':'grid_view'})
 
     movie_name_list = []
-    for movie_li in move_list.find_all('li'):
+    for movie_li in movie_list.find_all('li'):
         detail = movie_li.find('div', attrs={'class':'hd'})
         movie_name = detail.find('span',attrs={'class':'title'}).getText()
         movie_name_list.append(movie_name)
