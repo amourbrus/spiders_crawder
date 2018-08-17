@@ -8,6 +8,7 @@ import scrapy
 # sys.setdefaultencoding("utf-8")
 
 from mutitask.items import TencentItem
+from mutitask.items import DoubanCommentItem
 
 
 class TencentSpider(scrapy.Spider):
@@ -42,6 +43,26 @@ class TencentSpider(scrapy.Spider):
             yield scrapy.Request(url, callback=self.parse)
 
             yield item
+
+
+class DoubanComments(scrapy.Spider):
+    name = "douban"
+    allowed_domains = ["movie.douban.com"]
+    base_url = 'https://movie.douban.com/subject/26985127/comments?start='
+    offset = 0
+    start_urls = [base_url + str(offset)]
+
+
+    def parse(self, response):
+        # print("======", response)
+
+        node_list = response.xpath('//*[@class="comment-item"]//p/span')
+        for node in node_list:
+            item = DoubanCommentItem()
+            item['text'] = node.xpath('//p/span/text()')
+            yield item
+
+
 
 
 

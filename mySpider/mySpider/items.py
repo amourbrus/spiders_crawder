@@ -64,3 +64,20 @@ class DoubantvItem(scrapy.Item):
     cover = scrapy.Field()
     url = scrapy.Field()
 
+
+
+class DouyuItem(scrapy.Item):
+    # 房间链接
+    room_link = scrapy.Field()
+    # 图片链接
+    image_src = scrapy.Field()
+    # 昵称
+    nick_name = scrapy.Field()
+    # 城市
+    city_from = scrapy.Field()
+    # 存储图片的路径
+    imag_path = scrapy.Field()
+    # 爬虫名--->数据源
+    spider_nm = scrapy.Field()
+    # 抓取时间
+    start_tim = scrapy.Field()
