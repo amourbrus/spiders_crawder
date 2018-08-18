@@ -105,10 +105,15 @@ USER_AGENT_LIST = [
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
    # 'mySpider.pipelines.SomePipeline': 300,
-   'mySpider.pipelines.TencentJsonPipeline': 300,
+   # 'mySpider.pipelines.TencentJsonPipeline': 300,
    # 'mySpider.pipelines.PositionPipeline': 300,
+   'mySpider.pipelines.DouyuImagesPipeline':301,
 }
 
+# 和ImagesPipeline配合使用，通过ImagesPipeline下载的图片默认存储在这个路径下
+# IMAGES_STORE="/Users/Power/lesson_python/_11_0412/day11/Douyu/Douyu/Images/"
+# 加/
+IMAGES_STORE = "/mnt/hgfs/gongxiang/spiders_crawder/mySpider/mySpider/spiders/images/"
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html
 #AUTOTHROTTLE_ENABLED = True

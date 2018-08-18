@@ -22,8 +22,15 @@ class DouyuSpider(scrapy.Spider):
             item['room_link'] = u"http://www.douyu.com/" + data['room_id']
             item['image_src'] = data['vertical_src']
             item['nick_name'] = data['nickname']
-            item['city_from'] = data[anchor_city]
+            item['city_from'] = data['anchor_city']
             yield item
+            # 没有使用scrapy的pipeline的处理
+            # yield scrapy.Request(item['images_src'], meta=item['nick_name'], callback=self.parse_image)
+
+    # def parse_image(self, response):
+    #     file_name = response.meta['nick_name']
+    #     with open(file_name, "wb") as f:
+    #         f.write(response.body)
 
         self.offset += 20
         yield scrapy.Request(self.base_url + str(self.offset), callback=self.parse)
