@@ -227,25 +227,6 @@ class TencentSpider(CrawlSpider):
 
 ```
 
-c -- code
-r -- ref
-b -- bold  ** **
-
-i - italic, img  * *
-l -- link
-t -- todo, table
-p -- bullit point
-- bullet point  实心，tab 空心
-* bullet point
-``
->
-
-- [ ] 存储数据到数据库
-- [ ] 存储数据到csv
-
-  1. one  
-  2. two
-
 
 ```python
 # mongodb存储
