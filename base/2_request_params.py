@@ -10,7 +10,7 @@ kw = {
 }
 
 # 发送带参数的请求
-response = requests.get(url,headers=headers, params=kw)
+response = requests.get(url,headers=headers, params=kw)  # 参数**kwargs 会转为关键字参数
 with open('baidu.html', 'wb') as f:
     f.write(response.content)
 
