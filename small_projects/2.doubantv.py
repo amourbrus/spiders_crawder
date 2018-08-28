@@ -21,6 +21,7 @@ class Douban(object):
         dict_data = json.loads(data)
         results = dict_data['subjects']
         data_list = []
+        # 取出subjects值的某些值like title，cover
         for tv in results:
             temp = {}
             temp['title'] = tv['title']

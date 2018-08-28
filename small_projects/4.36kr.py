@@ -70,7 +70,7 @@ class Kr36(object):
         data = self.get_data(self.url)
         data_list = self.parse_data(data)
         self.save_data(data_list)
-        # 加载下一页数据，开启循环
+        # 加载下一页数据，开启循环， --可以合并
         while True:
             url = self.ajax_url.format(self.page)
             data = self.get_data(url)
