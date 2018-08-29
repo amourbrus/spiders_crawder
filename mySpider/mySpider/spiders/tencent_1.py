@@ -54,23 +54,10 @@ class TencentSpider(scrapy.Spider):
         #     url = self.base_url + str(self.offset)
         #     yield scrapy.Request(url, callback=self.parse)
 
-        # 第二版本，爬取所有的列表页信息使用下一页动态的获取所有页的数据；适用场景：不确定总页数；问题：和第一种一样，由于都是一个接一个的，没有充分利用到scrapy的高并发
+        # 第二版本，爬取所有的列表页信息使用下一页动态的获取所有页的数据；适用场景：不确定总页数；问题：和第一种一样，
+        # 由于都是一个接一个的，没有充分利用到scrapy的高并发
 
         # if not response.xpath("//a[@class='noactive' and @id='next']"):
         #     next_link = u'https://hr.tencent.com/' + response.xpath("//a[@id='next']/@href").extract_first()
         #
         #     yield scrapy.Request(next_link, callback=self.parse)
-
-
-
-
-
-
-
-
-
-
-
-
-
-

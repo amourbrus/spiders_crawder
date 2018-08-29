@@ -20,8 +20,6 @@ class MyspiderPipeline(object):
 # class SinaPipeline(object):
 #     def process_item[]
 
-
-
 class TencentJsonPipeline(object):
     def open_spider(self, spider):
         self.file = open('tencent.csv', 'w')
@@ -33,8 +31,6 @@ class TencentJsonPipeline(object):
 
     def close_spider(self, spider):
         self.file.close()
-
-
 
 # class TencentJsonPipeline(object):
 #
@@ -92,9 +88,3 @@ class DouyuImagesPipeline(ImagesPipeline):
             # 'checksum': 'd95281e0b865baa916d648cdf910cbea'}
 #      )
 # ]
-
-
-# 13家哦公司网站，日100w， redis、scrapy  -- app，新闻
-# 航班信息 --- 协程等旅游使用
-# 维护 -- 写的爬虫稳定
-# 细节过滤

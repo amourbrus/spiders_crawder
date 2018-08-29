@@ -26,7 +26,6 @@ class TencentSpider(CrawlSpider):
     rules = [
         Rule(LinkExtractor(allow=r"position\.php\?&start=\d+"), callback="parse_page", follow=True),
         Rule(LinkExtractor(allow=r"position_detail\.php\?id=\d+"), callback="parse_position", follow=False)
-
     ]
     # 一定不能是parse
     def parse_page(self, response):
@@ -54,15 +53,3 @@ class TencentSpider(CrawlSpider):
         item['position_yaoqiu'] = response.xpath("//ul[@class='squareli']")[1].xpath("./li/text()").extract()
 
         yield item
-
-
-
-
-
-
-
-
-
-
-
-

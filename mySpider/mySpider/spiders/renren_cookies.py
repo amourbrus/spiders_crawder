@@ -9,7 +9,7 @@ class RenrenSpider(scrapy.Spider):
 		"http://www.renren.com/410043129/profile",
         "http://www.renren.com/965999739/profile"
 	]
-	
+
 	def start_requests(self):
 		cookies = {"anonymid" : "j7wsz80ibwp8x3",
             "_r01_" : "1",
@@ -28,9 +28,8 @@ class RenrenSpider(scrapy.Spider):
             "t" : "a53991a23060e9ec4810b9515d82d1509",
             "societyguester" : "a53991a23060e9ec4810b9515d82d1509",
             "xnsid" : "ed9988de"
-		
 		}
-		
+
 		headers = {
             "Accept" : "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8",
             "Accept-Encoding" : "gzip, deflate",
@@ -45,15 +44,8 @@ class RenrenSpider(scrapy.Spider):
 		for url in self.start_urls:
 			yield scrapy.Request(url, cookies=cookies, headers=headers, callback=self.parse_page
 			)
-			
+
 	def parse_page(self, response):
 		file_name = response.xpath("//title/text()").extract_first()
 		with open(file_name, 'w') as f:
 			f.write(response.body)
-			
-		
-		
-		
-		
-		
-		
