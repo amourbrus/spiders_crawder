@@ -21,7 +21,8 @@ class AqiSpider(RedisCrawlSpider):
 
     rules = [
         # 获取每个城市（384城市）的链接，并发送请求，返回的响应继续提取链接（但是在第一个Rule中已经无法提取新的链接，但是在第二个Rule中可以提取每个城市所有月的链接）
-        Rule(LinkExtractor(allow=r"monthdata"), follow=True),
+        # Rule(LinkExtractor(allow=r"monthdata"), follow=True),
+        Rule(LinkExtractor(allow=r"monthdata")),  # 没有callback默认就是ture,同下也可以去掉
         # 获取每个城市所有月的链接，并发送请求返回响应，交给callback解析该月所有天的数据，同时不再需要继续提取链接。
         Rule(LinkExtractor(allow=r"daydata"),callback="parse_day", follow=False)
     ]

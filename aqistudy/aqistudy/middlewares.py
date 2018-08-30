@@ -14,7 +14,7 @@ class AqiSeleniumMiddleware(object):
         self.options = webdriver.ChromeOptions()
         self.options.add_argument("--headless")
         self.driver = webdriver.Chrome(ChromeOptions=self.options)
-        
+
 
 
     # retry会捕获retry_load_page()的异常
@@ -40,7 +40,7 @@ class AqiSeleniumMiddleware(object):
                 html = self.driver.page_source  # page_source属性
                 return HtmlResponse(
                     url = self.driver.current_url,　　# current_url 属性
-                    body = html.encode("ut-8"),
+                    body = html.encode("utf-8"),
                     encoding = 'utf-8',
                     request = request,
                 )

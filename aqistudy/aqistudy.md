@@ -1,7 +1,6 @@
 ### 页面分析
 
-
-关于系统　－－－　历史数据查询
+首页文字关于系统　－－－　历史数据查询，所有城市--》每月--》每天的数据
 1. 获取每个城市的链接（静态）：
     https://www.aqistudy.cn/historydata/  -
     "//div[@class='all']//a/@href"
@@ -26,7 +25,7 @@
         tr.xpath("./td[8]/text()")
         tr.xpath("./td[9]/text()")
 
-
+### 编码
 items.py
 spiders.py
   - 获取页面其他数据－－上级中的城市名
@@ -58,21 +57,14 @@ spiders.py
       ```
 middlewares.py **掌握**
 * 静态页面交给下载器，动态使用中间件拦截并返回
-* 中间件使用selenim浏览器渲染　
+* 中间件使用selenim浏览器渲染（无界面方式）
 * retry的使用   
 
+crawl spider
+添加规则 rules
+只需要 parse_days函数
 
-
-
-alt + 数字　　当前标签的切换
-隐藏目录栏
-滑动多选
-下一行　ｃｔｒｌ　enter
-　　ctrl shift enter
-
-
-- [ ] aqistudy
-- [ ] 分布式、部署
+RedisSpider
 
 
 
